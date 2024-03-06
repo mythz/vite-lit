@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit + TS</title>
+    <link rel="stylesheet" href="../tailwind.input.css" />
+    <script type="module" src="/src/my-element.ts"></script>
+    <script type="module" src="/src/primary-button.ts"></script>
+    <script type="module" src="/src/secondary-button.ts"></script>
+  </head>
+  <body class="p-4">
+    <my-element>
+      <h1>Vite + Lit</h1>
+    </my-element>
+    <h3 class="text-2xl text-red-500">Primary Button</h3>
+    <div class="py-4 flex flex-wrap gap-4">
+      <script>
+        const colors = ['blue','purple','red','green','sky','cyan','indigo']
+      </script>
+      <primary-button onclick="this.color = this.color ? colors[colors.findIndex(x => x == this.color) + 1 % colors.length] : colors[0]">Primary</primary-button>
+      <secondary-button>Secondary</secondary-button>
+      <primary-button color="blue">Primary</primary-button>
+      <primary-button color="purple">Primary</primary-button>
+      <primary-button color="red">Primary</primary-button>
+      <primary-button color="green">Primary</primary-button>
+      <primary-button color="sky">Primary</primary-button>
+      <primary-button color="cyan">Primary</primary-button>
+      <primary-button color="indigo">Primary</primary-button>
+    </div>
+  </body>
+</html>
