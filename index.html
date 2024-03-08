@@ -9,18 +9,20 @@
     <script type="module" src="/src/my-element.ts"></script>
     <script type="module" src="/src/primary-button.ts"></script>
     <script type="module" src="/src/secondary-button.ts"></script>
+    <script type="module" src="/src/text-input.ts"></script>
   </head>
   <body class="p-4">
     <my-element>
       <h1>Vite + Lit</h1>
     </my-element>
-    <h3 class="text-2xl text-red-500">Primary Button</h3>
+
+    <h3 class="text-2xl">Primary Button</h3>
     <div class="py-4 flex flex-wrap gap-4">
       <script>
         const colors = ['blue','purple','red','green','sky','cyan','indigo']
       </script>
       <primary-button onclick="this.color = this.color ? colors[colors.findIndex(x => x == this.color) + 1 % colors.length] : colors[0]">Primary</primary-button>
-      <secondary-button>Secondary</secondary-button>
+      <primary-button href="https://servicestack.net">servicestack.net</primary-button>
       <primary-button color="blue">Primary</primary-button>
       <primary-button color="purple">Primary</primary-button>
       <primary-button color="red">Primary</primary-button>
@@ -29,5 +31,34 @@
       <primary-button color="cyan">Primary</primary-button>
       <primary-button color="indigo">Primary</primary-button>
     </div>
+
+    <h3 class="text-2xl">Secondary Button</h3>
+    <div class="py-4 flex flex-wrap gap-4">
+      <secondary-button onclick="console.log('here')">Secondary</secondary-button>
+      <secondary-button href="https://servicestack.net" target="_blank" rel="nofollow">servicestack.net</secondary-button>
+    </div>
+
+    <h3 class="text-2xl">Text Input</h3>
+
+    <div class="flex flex-1 flex-col justify-between">
+      <script>
+        let value = 'Hello, World!';
+      </script>
+      <div id="result"></div>
+      <div class="divide-y divide-gray-200 px-4 sm:px-6">
+          <div class="space-y-6 pt-6 pb-5">
+              <fieldset class="grid grid-cols-12 gap-6">
+                <text-input id="userName" placeholder="Enter text" oninput="e => console.log('@oninput',e)"></text-input>
+              </fieldset>
+          </div>
+      </div>
+    </div>
+
+
+    <script>
+      document.addEventListener('input', e => {
+        // console.log('addEventListener', e)
+      })
+    </script>
   </body>
 </html>
