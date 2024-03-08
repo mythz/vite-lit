@@ -1,0 +1,38 @@
+﻿@page "/lit"
+
+<PageTitle>Lit Test</PageTitle>
+
+<script type="module" src="/lit/index.js"></script>
+
+<script type="module">
+import { on, $1 } from "@@servicestack/client"
+on(document, {
+    DOMContentLoaded() {
+        on('#userName', {
+            input(e) {
+                $1('#result').innerHTML = e.target.value
+            }
+        })
+    }
+})
+</script>
+
+<div class="p-8 mb-20 mx-auto max-w-fit">
+    <Heading1>Lit Test</Heading1>
+    <div class="gap-4">
+        <primary-button onclick="console.log('hello')">Primary Button</primary-button>
+        <router-link to="/counter" link-style="text-decoration:none;padding-left:1em">Counter</router-link>
+    </div>
+
+    <div>
+        <div id="result"></div>
+        <div class="divide-y divide-gray-200 px-4 sm:px-6">
+            <div class="space-y-6 pt-6 pb-5">
+                <fieldset class="grid grid-cols-2 gap-6">
+                    <text-input id="userName" placeholder="Enter text"></text-input>
+                    <text-input id="password" input-type="password" placeholder="Enter text"></text-input>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
